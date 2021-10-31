@@ -5,51 +5,32 @@ using UnityEngine;
 
 public class MouseMove : MonoBehaviour
 {
-
-    /** Potential fix for dragging objects
-     private float MouseX;
-     private float MouseY;
-
-
-     private float GetMousePos(bool x)
-     {
-         MouseX = Input.mousePosition.x;
-         MouseY = Input.mousePosition.y;
-
-         if (x == true) return MouseX;
-         else return MouseY;
-     
-     }
-
-     private void OnMouseDown()
-     {
-
-     }
-
-     private void OnMouseDrag()
-     {
-         float objYpoz = transform.position.y;
-
-         transform.position = new Vector3(GetMousePos(true), GetMousePos(false), objYpoz);
-     }
-
-     **/
-
+    
     private Vector3 MouseOffset;
-
+    private Rigidbody _rigidbody;
     private float MouseZCoord;
+
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     private void OnMouseDown()
     {
         MouseZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-        MouseOffset = gameObject.transform.position - GetMouseWorldPose();   
-    }
+        MouseOffset = gameObject.transform.position - GetMouseWorldPose();
+        _rigidbody.isKinematic = true;
 
+    }
+    private void OnMouseUp()
+    {
+        _rigidbody.isKinematic = false;
+    }
     private Vector3 GetMouseWorldPose()
     {
         Vector3 MousePoint = Input.mousePosition;
 
-        MousePoint.z = MouseZCoord;
+         MousePoint.z =MouseZCoord;
 
         return Camera.main.ScreenToWorldPoint(MousePoint);
     }
@@ -57,5 +38,8 @@ public class MouseMove : MonoBehaviour
     private void OnMouseDrag()
     {
         transform.position = GetMouseWorldPose() + MouseOffset;
+        
+        
     }
+   
 }

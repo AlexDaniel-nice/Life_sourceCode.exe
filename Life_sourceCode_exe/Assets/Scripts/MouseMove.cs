@@ -7,12 +7,14 @@ public class MouseMove : MonoBehaviour
 {
     
     private Vector3 MouseOffset;
+    private Vector3 FinalPozition;
     private Rigidbody _rigidbody;
     private float MouseZCoord;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        FinalPozition = transform.position;
     }
 
     private void OnMouseDown()
@@ -37,9 +39,12 @@ public class MouseMove : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        transform.position = GetMouseWorldPose() + MouseOffset;
-        
-        
+       
+
+        FinalPozition = GetMouseWorldPose() + MouseOffset;
+        FinalPozition.y = Mathf.Clamp(FinalPozition.y, 1.6f, 2.6f);
+
+        transform.position = FinalPozition;
     }
    
 }

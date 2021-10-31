@@ -42,6 +42,8 @@ public class MouseMove : MonoBehaviour
        
 
         FinalPozition = GetMouseWorldPose() + MouseOffset;
+        
+        // cabd schimbi la camera 2 inlocuiesti FinalPozition.y cu transform.position.y in Mathf.Clamp
         FinalPozition.y = Mathf.Clamp(FinalPozition.y, 1.6f, 2.6f);
 
         transform.position = FinalPozition;

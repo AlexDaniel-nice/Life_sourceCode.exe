@@ -8,14 +8,21 @@ public class SnapObject : MonoBehaviour
     [SerializeField] private GameObject SnapObjectFather;
 
     private bool onbjectSnapped;
-
+    private SnappToPlaceScript Snapper;
+    private void Start()
+    {
+        Snapper = SnapZone.GetComponent<SnappToPlaceScript>();
+    }
     void Update()
     {
-        onbjectSnapped = SnapZone.GetComponent<SnappToPlaceScript>().isSnapped;
+        onbjectSnapped = Snapper.isSnapped;
 
         if (onbjectSnapped == true)
         { 
             transform.SetParent(SnapObjectFather.transform);
+
+            transform.position = SnapZone.transform.position;
+            transform.rotation = SnapZone.transform.rotation;
         }
        
     }

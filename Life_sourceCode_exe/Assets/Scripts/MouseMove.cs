@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MouseMove : MonoBehaviour
 {
-    
     private Vector3 MouseOffset;
     private Vector3 FinalPozition;
     private Rigidbody _rigidbody;
@@ -13,6 +12,7 @@ public class MouseMove : MonoBehaviour
     private bool wasFixed;
 
     [SerializeField] private Transform CoordonatesWhenFixed;
+    [SerializeField] private bool isFreeCamera;
 
     private void Start()
     {
@@ -22,14 +22,16 @@ public class MouseMove : MonoBehaviour
 
     private void OnMouseDown()
     {
-        MouseZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-        MouseOffset = gameObject.transform.position - GetMouseWorldPose();
-        _rigidbody.isKinematic = true;
-
+            MouseZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+            MouseOffset = gameObject.transform.position - GetMouseWorldPose();
+            _rigidbody.isKinematic = true;
+            wasFixed = false;
     }
+
     private void OnMouseUp()
     {
-        _rigidbody.isKinematic = false;
+        if (wasFixed == false)
+            _rigidbody.isKinematic = false;
     }
     private Vector3 GetMouseWorldPose()
     {

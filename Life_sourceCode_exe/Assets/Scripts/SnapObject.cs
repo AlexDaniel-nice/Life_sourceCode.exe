@@ -7,17 +7,14 @@ public class SnapObject : MonoBehaviour
     [SerializeField] private GameObject SnapZone;
     [SerializeField] private GameObject SnapObjectFather;
 
-    [SerializeField] private bool onjectSnapped;
+    private bool onbjectSnapped;
 
-
-    // Update is called once per frame
     void Update()
     {
-        onjectSnapped = SnapZone.GetComponent<SnappToPlaceScript>().isSnapped;
+        onbjectSnapped = SnapZone.GetComponent<SnappToPlaceScript>().isSnapped;
 
-        if (onjectSnapped == true)
-        {
-            GetComponent<Rigidbody>().isKinematic = true;
+        if (onbjectSnapped == true)
+        { 
             transform.SetParent(SnapObjectFather.transform);
         }
        

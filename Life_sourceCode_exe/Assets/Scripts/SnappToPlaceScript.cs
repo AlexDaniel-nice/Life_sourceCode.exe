@@ -6,12 +6,11 @@ public class SnappToPlaceScript : MonoBehaviour
 {
     private bool isInsideSnapZone;
 
-    [SerializeField] private GameObject partThatIsGoingToSnap;
-    [SerializeField] private GameObject refrenceRotationWhenSnaped;
-    
+    public GameObject partThatIsGoingToSnap;
+    //public GameObject refrenceRotationWhenSnaped;
     public bool isSnapped;
 
- 
+    [SerializeField] private LayerMask layerMask;
     private void OnTriggerEnter(Collider col)
     {
         isInsideSnapZone = true;
@@ -21,13 +20,12 @@ public class SnappToPlaceScript : MonoBehaviour
         isInsideSnapZone = false;
     }
 
-    private void OnMouseUp()
+    private void OnMouseDrag()
     {
-        if (isInsideSnapZone == true)
+        if (isInsideSnapZone == true && Input.GetKeyDown(KeyCode.LeftControl)==true)
         {
-           
-            partThatIsGoingToSnap.gameObject.transform.position = this.transform.position;
-            partThatIsGoingToSnap.gameObject.transform.rotation = refrenceRotationWhenSnaped.transform.rotation;
+            partThatIsGoingToSnap.transform.position = this.transform.position;
+            partThatIsGoingToSnap.transform.rotation = this.transform.rotation;
             isSnapped = true;
         }
     }

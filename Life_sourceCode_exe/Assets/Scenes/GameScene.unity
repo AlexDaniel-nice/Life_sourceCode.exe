@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 25784876}
   - component: {fileID: 25784877}
   - component: {fileID: 25784878}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SnapPoz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25784875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.094, y: 0.184, z: -0.02}
+  m_LocalPosition: {x: 0.098, y: 0.257, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 917973154}
@@ -155,7 +155,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.09
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &25784878
 MonoBehaviour:
@@ -170,7 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partThatIsGoingToSnap: {fileID: 527979243}
-  refrenceRotationWhenSnaped: {fileID: 917550210}
   isSnapped: 0
 --- !u!1 &87378965
 GameObject:
@@ -550,7 +549,7 @@ GameObject:
   - component: {fileID: 527979244}
   - component: {fileID: 527979246}
   - component: {fileID: 527979247}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ribosome_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoordonatesWhenFixed: {fileID: 296189300}
+  isFreeCamera: 1
 --- !u!114 &527979247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,7 +614,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SnapZone: {fileID: 25784875}
   SnapObjectFather: {fileID: 917550210}
-  onjectSnapped: 0
 --- !u!4 &528469707
 Transform:
   m_ObjectHideFlags: 0
@@ -833,7 +832,7 @@ GameObject:
   - component: {fileID: 917550212}
   - component: {fileID: 917550211}
   - component: {fileID: 917550213}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ribosome_big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,6 +882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoordonatesWhenFixed: {fileID: 296189300}
+  isFreeCamera: 1
 --- !u!4 &917973154
 Transform:
   m_ObjectHideFlags: 0

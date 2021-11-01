@@ -10,6 +10,9 @@ public class MouseMove : MonoBehaviour
     private Vector3 FinalPozition;
     private Rigidbody _rigidbody;
     private float MouseZCoord;
+    private bool wasFixed;
+
+    [SerializeField] private Transform CoordonatesWhenFixed;
 
     private void Start()
     {
@@ -39,14 +42,23 @@ public class MouseMove : MonoBehaviour
 
     private void OnMouseDrag()
     {
-       
+        if (Input.GetKeyDown(KeyCode.F) == false && wasFixed==false)
+        {
+            FinalPozition = GetMouseWorldPose() + MouseOffset;
 
-        FinalPozition = GetMouseWorldPose() + MouseOffset;
-        
-        // cabd schimbi la camera 2 inlocuiesti FinalPozition.y cu transform.position.y in Mathf.Clamp
-        FinalPozition.y = Mathf.Clamp(FinalPozition.y, 1.6f, 2.6f);
+            // cabd schimbi la camera 2 inlocuiesti FinalPozition.y cu transform.position.y in Mathf.Clamp
+            FinalPozition.y = Mathf.Clamp(FinalPozition.y, 1.6f, 2.6f);
 
-        transform.position = FinalPozition;
+            transform.position = FinalPozition;
+        }
+        else FixedPoz();
+
     }
-   
+
+    private void FixedPoz()
+    {
+        transform.position = CoordonatesWhenFixed.position;
+        _rigidbody.isKinematic = true;
+        wasFixed = true;
+    }
 }

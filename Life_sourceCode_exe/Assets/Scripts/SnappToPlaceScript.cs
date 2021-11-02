@@ -9,6 +9,7 @@ public class SnappToPlaceScript : MonoBehaviour
     public GameObject partThatIsGoingToSnap;
     //public GameObject refrenceRotationWhenSnaped;
     public bool isSnapped;
+
     [SerializeField] private LayerMask layerMask;
 
     private void OnTriggerEnter(Collider col)
@@ -17,6 +18,7 @@ public class SnappToPlaceScript : MonoBehaviour
         SnapFunction();
         partThatIsGoingToSnap.GetComponent<Rigidbody>().isKinematic = true;
         Debug.Log(isInsideSnapZone);
+        
     }
     private void OnTriggerExit(Collider col)
     {

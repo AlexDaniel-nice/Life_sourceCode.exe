@@ -6,23 +6,35 @@ public class SnapObject : MonoBehaviour
 {
     [SerializeField] private GameObject SnapZone;
     [SerializeField] private GameObject SnapObjectFather;
+    [SerializeField] private LayerMask layerMask;
 
-    private bool onbjectSnapped;
+    private bool objectSnapped;
     private SnappToPlaceScript Snapper;
     private void Start()
     {
         Snapper = SnapZone.GetComponent<SnappToPlaceScript>();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+            objectSnapped = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        objectSnapped = false;
+
+    }
     void Update()
     {
-        onbjectSnapped = Snapper.isSnapped;
-
-        if (onbjectSnapped == true)
+       
+        if (objectSnapped == true && Input.GetKeyDown(KeyCode.LeftControl))
         { 
             transform.SetParent(SnapObjectFather.transform);
 
             transform.position = SnapZone.transform.position;
             transform.rotation = SnapZone.transform.rotation;
+            this.GetComponent<Rigidbody>().isKinematic = true;
         }
        
     }

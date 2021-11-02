@@ -6,6 +6,7 @@ public class SnapObject : MonoBehaviour
 {
     [SerializeField] private GameObject SnapZone;
     [SerializeField] private GameObject SnapObjectFather;
+    [SerializeField] private GameObject OriginalFather;
     [SerializeField] private LayerMask layerMask;
 
     private bool objectSnapped;
@@ -36,6 +37,11 @@ public class SnapObject : MonoBehaviour
             transform.rotation = SnapZone.transform.rotation;
             this.GetComponent<Rigidbody>().isKinematic = true;
         }
-       
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.LeftControl)) transform.SetParent(OriginalFather.transform);
+        }
+           
+
     }
 }

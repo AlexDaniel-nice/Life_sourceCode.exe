@@ -8,7 +8,12 @@ public class nextPhaze : MonoBehaviour
     public GameObject cam;
     public GameObject ObjAsambled;
     public Transform ObjAsambledPoz;
+    public GameObject CodeUI;
 
+    private void Awake()
+    {
+        CodeUI.SetActive(false);
+    }
     public void NextPhaze()
     {
         cam.transform.position = TargetPozCode.position;
@@ -17,6 +22,8 @@ public class nextPhaze : MonoBehaviour
         ObjAsambled.transform.position = ObjAsambledPoz.position;
         ObjAsambled.transform.rotation = ObjAsambledPoz.rotation;
         Debug.Log("Next part");
+
+        CodeUI.SetActive(true);
        
     }
 }

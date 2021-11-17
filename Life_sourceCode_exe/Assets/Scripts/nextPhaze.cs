@@ -9,6 +9,7 @@ public class nextPhaze : MonoBehaviour
     public GameObject ObjAsambled;
     public Transform ObjAsambledPoz;
     public GameObject CodeUI;
+    public Transform CamOriginalPoz;
 
     private void Awake()
     {
@@ -26,4 +27,14 @@ public class nextPhaze : MonoBehaviour
         CodeUI.SetActive(true);
        
     }
+
+    public void BackToAssamble()
+    {
+        cam.transform.position = CamOriginalPoz.position;
+        cam.transform.rotation = CamOriginalPoz.rotation;
+
+        //ObjAsambled.transform.position = ObjAsambledPoz.position;
+        //ObjAsambled.transform.rotation = ObjAsambledPoz.rotation;
+    }
+
 }

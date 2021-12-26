@@ -10,14 +10,21 @@ public class codeInterpretor : MonoBehaviour
     public InputField CodeWrite;
     public string defaultBeginMess;
 
+    private string[] command;
 
+    private void ena()
+    {
+        Debug.Log("entering advanced config");
+    }
+    private void LineInterpretor(string a)
+    {
+        if (a == "enable") ena();
+    }
     public void onEndEdit(string input)
     {
-        if (input == "enable")
-        {
-            CodeWrite.text = '\n' + "entering advamced config";
-            Debug.Log("entering advamced config");
-        }
+        command = input.Split('\n');
+        LineInterpretor(command[command.Length - 1]);
+
     }
     // Start is called before the first frame update
     void Start()

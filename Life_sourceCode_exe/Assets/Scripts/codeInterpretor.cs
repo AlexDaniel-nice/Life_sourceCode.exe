@@ -11,28 +11,46 @@ public class codeInterpretor : MonoBehaviour
 
     private string[] command;
 
+    private void Start()
+    {
+        CodeWrite.Select();
+    }
     private void ena()
     {
+        // CodeWrite.enabled = false;
+       // CodeWrite.interactable = !CodeWrite.interactable;
         Debug.Log("entering advanced config");
+        CodeWrite.text = CodeWrite.text + '\n' + "entering advanced config" + '\n';
+        // CodeWrite.interactable = !CodeWrite.interactable;
+        CodeWrite.enabled = true;
+        CodeWrite.Select();
+        
+        CodeWrite.text = CodeWrite.text + '\n';
+
+        CodeWrite.Select();
+        CodeWrite.caretPosition = CodeWrite.text.Length + 10;
     }
+
     private void LineInterpretor(string a)
     {
         if (a == "enable") ena();
+      //if (a == "conf t") conf_t();
+      //if (a == "move") move();
+      //if (a == "input") input();
+      //if (a == "other") other();
     }
+
     public void FinalEdit(InputField inpF)
     {
-        string input = inpF.text;
-        command = input.Split('\n');
+        command = inpF.text.Split('\n');
         LineInterpretor(command[command.Length - 1]);
-        Debug.Log(command[command.Length - 1]);
-        Debug.Log(input);
-
     }
-    // Start is called before the first frame update
+
+    /* Leftover code
     void Start()
     {
-        CodeWrite.text = '\n'+ defaultBeginMess + '\n';
-        CodeWrite.onEndEdit.AddListener(delegate { FinalEdit(CodeWrite); });
+        //CodeWrite.text =defaultBeginMess;
+      //  CodeWrite.onEndEdit.AddListener(delegate { FinalEdit(CodeWrite); });
         
     }
 
@@ -42,16 +60,18 @@ public class codeInterpretor : MonoBehaviour
         CodeWrite.onEndEdit.AddListener(delegate { FinalEdit(CodeWrite); });
              
      }
-    */
     public void onClik()
     {
         CodeWrite.text = "enable" + '\n' + "entering advanced conf";
     }
+    */
 
     //Many things that are up are garbage
+
     //THE SOLUTION!!!!!
     public void InputText(string NewText)
     {
+        FinalEdit(CodeWrite);
         Debug.Log(NewText);
 
     }

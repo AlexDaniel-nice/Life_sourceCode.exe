@@ -47,4 +47,12 @@ public class codeInterpretor : MonoBehaviour
     {
         CodeWrite.text = "enable" + '\n' + "entering advanced conf";
     }
+
+    //Many things that are up are garbage
+    //THE SOLUTION!!!!!
+    public void InputText(string NewText)
+    {
+        Debug.Log(NewText);
+
+    }
 }

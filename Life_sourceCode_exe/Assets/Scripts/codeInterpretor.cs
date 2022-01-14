@@ -31,12 +31,29 @@ public class codeInterpretor : MonoBehaviour
         CodeWrite.caretPosition = CodeWrite.text.Length + 10;
     }
 
+    private void getInput()
+    {
+        CodeWrite.text = CodeWrite.text + '\n' + "C:<JohnDowe<ribozom<getinput> " + '\n';
+
+        CodeWrite.Select();
+        CodeWrite.caretPosition = CodeWrite.text.Length + 10;
+    }
+
+    private void printResult()
+    {
+        CodeWrite.text = CodeWrite.text + '\n' + "C:<JohnDowe<ribozom<printing...> " + '\n';
+
+        CodeWrite.Select();
+        CodeWrite.caretPosition = CodeWrite.text.Length + 10;
+    }
+
     private void LineInterpretor(string a)
     {
         if (a == "enable") ena();
+        if (a == "get input") getInput();
+        if (a == "print") printResult();
       //if (a == "conf t") conf_t();
       //if (a == "move") move();
-      //if (a == "input") input();
       //if (a == "other") other();
     }
 

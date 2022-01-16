@@ -5,43 +5,36 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private ScriptableObjectsPoz CameraPozition;
-    public Transform TargetPoz1;
-    public Transform TargetPoz2;
-    public Transform OriginalPoz;
-
+    
     public GameObject NextPhazeBTN;
     //public float smoothMove = 10f;
 
     private bool isUpView;
     private bool isCodeView;
 
-    void Update()
+    private void ZoomView()
     {
-        /*
-        Vector3 Poz1 = TargetPoz1.position;
-        Vector3 Poz0 = OriginalPoz.position;
-
-        Vector3 smoothToPlace = Vector3.Lerp(transform.position, Poz1, smoothMove*Time.deltaTime);
-        Vector3 smoothToPlaceBack = Vector3.Lerp(Poz1, Poz0, smoothMove * Time.deltaTime);
-        */
-
         if (Input.GetKeyDown(KeyCode.Z))
         {
-           transform.position = TargetPoz1.position;
-            //transform.position = CameraPozition.TopViewPoz.position;
-            transform.rotation = TargetPoz1.rotation;
-           // transform.rotation = CameraPozition.TopViewPoz.rotation;
+            transform.position = CameraPozition.TopViewPoz.position;
+            transform.rotation = CameraPozition.TopViewPoz.rotation;
         }
-        
+    }
+
+    private void OriginalCameraView()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            transform.position = OriginalPoz.position;
-           // transform.position = CameraPozition.OriginalPoz.position;
-            transform.rotation = OriginalPoz.rotation;
-           // transform.rotation = CameraPozition.OriginalPoz.rotation;
+            transform.position = CameraPozition.OriginalPoz.position;
+            transform.rotation = CameraPozition.OriginalPoz.rotation;
         }
-
-        /*
+    }
+    void Update()
+    {
+        ZoomView();
+        OriginalCameraView();
+        
+        /** Extra code, purpose: UNKNOWN :))))
         isCodeView = NextPhazeBTN.GetComponent<nextPhaze>().CodePhaze;
 
         if (isCodeView==true)
@@ -55,6 +48,6 @@ public class CameraMovement : MonoBehaviour
             this.transform.position = TargetPoz1.position;
             this.transform.rotation = TargetPoz1.rotation;
         }
-        */
+        **/
     }
 }

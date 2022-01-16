@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    [SerializeField] private ScriptableObjectsPoz CameraPozition;
     public Transform TargetPoz1;
     public Transform TargetPoz2;
     public Transform OriginalPoz;
@@ -26,14 +27,18 @@ public class CameraMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            transform.position = TargetPoz1.position;
+           transform.position = TargetPoz1.position;
+            //transform.position = CameraPozition.TopViewPoz.position;
             transform.rotation = TargetPoz1.rotation;
+           // transform.rotation = CameraPozition.TopViewPoz.rotation;
         }
         
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             transform.position = OriginalPoz.position;
+           // transform.position = CameraPozition.OriginalPoz.position;
             transform.rotation = OriginalPoz.rotation;
+           // transform.rotation = CameraPozition.OriginalPoz.rotation;
         }
 
         /*

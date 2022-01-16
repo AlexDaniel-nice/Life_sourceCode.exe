@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class levelGenerator : MonoBehaviour
 {
-    [SerializeField]
-    private float TimeToSpawnFriend;
+    [SerializeField] private float TimeToSpawnFriend;
 
     void Start()
     {
@@ -20,22 +19,34 @@ public class levelGenerator : MonoBehaviour
         FriendEntity.transform.position = new Vector3(xPoz, yPoz, zPoz);
     }
 
-    //de gasit o metoda mai optima pt codul din update
-    //de reparat functia timer
-    private void Update()
+    private float RandomCoordonates_Friend(float xPozition, float yPozition, float zPozition)
     {
-        float Timer = TimeToSpawnFriend;
+        return 0;
+    }
+
+    //s-ar putea sa nu mearga
+    private void TimeBetweenFrinds(float time)
+    {
+        float Timer = time;
 
         Timer -= Time.deltaTime;
-        if (Timer<=0)
+        if (Timer <= 0)
         {
             Timer = TimeToSpawnFriend;
 
             //In loc de 0 pun o functie care calculeaza o valoare random pt pozitia obiectului
-           // SpawnFriend(0, 10, 0);
+            // SpawnFriend(0, 10, 0);
         }
+    }
+    //de gasit o metoda mai optima pt codul din update
+    //de reparat functia timer
+    private void Update()
+    {
+        TimeBetweenFrinds(TimeToSpawnFriend);
 
     }
+
+    //ori functia asta ori TimeBetweenFrinds(...)
     private void TimeForNewFriend(float nextFriendInNsec)
     {
         

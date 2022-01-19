@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9c7f32d71f20a14b8438c83041d1434, type: 3}
-  m_Name: Pozition_Container
+  m_Name: Pozition_Container_Camera
   m_EditorClassIdentifier: 
-  OriginalPoz: {fileID: 0}
-  TopViewPoz: {fileID: 0}
-  CodeViewPoz: {fileID: 0}
+  OriginalPoz: {fileID: 1587971206222572516, guid: 71be68de4e58b884da1ad41c44eb3982,
+    type: 3}
+  TopViewPoz: {fileID: 6437650767076649112, guid: 5cc3d9ae26fd4c4449034fe6ee1a83e5,
+    type: 3}
+  CodeViewPoz: {fileID: 609868263278146443, guid: 8e48031786cc3c6439247b648a149c26,
+    type: 3}

@@ -6,50 +6,31 @@ public class levelGenerator : MonoBehaviour
 {
     [SerializeField] private float TimeToSpawnFriend;
 
+    private float Timer = 0;
+
     void Start()
     {
-        SpawnFriend(10, 10, 10);
-        SpawnFriend(10, 5, 5);
-        SpawnFriend(-10, 10, 10);
+       
     }
 
-    private void SpawnFriend(float xPoz, float yPoz, float zPoz)
+    private void SpawnFriend()
     {
         GameObject FriendEntity = Instantiate(GameAssets.GetInstance.Friend);
+
+        float xPoz = Random.Range(-15, 15);
+        float zPoz = Random.Range(-15, 15);
+        float yPoz = Random.Range(5, 15);
+        
         FriendEntity.transform.position = new Vector3(xPoz, yPoz, zPoz);
     }
 
-    private float RandomCoordonates_Friend(float xPozition, float yPozition, float zPozition)
-    {
-        return 0;
-    }
-
-    //s-ar putea sa nu mearga
-    private void TimeBetweenFrinds(float time)
-    {
-        float Timer = time;
-
-        Timer -= Time.deltaTime;
-        if (Timer <= 0)
-        {
-            Timer = TimeToSpawnFriend;
-
-            //In loc de 0 pun o functie care calculeaza o valoare random pt pozitia obiectului
-            // SpawnFriend(0, 10, 0);
-        }
-    }
-    //de gasit o metoda mai optima pt codul din update
-    //de reparat functia timer
     private void Update()
     {
-        TimeBetweenFrinds(TimeToSpawnFriend);
-
+        Timer += Time.deltaTime;
+        if (Timer >= TimeToSpawnFriend)
+        {
+            SpawnFriend();
+            Timer = 0;
+        }
     }
-
-    //ori functia asta ori TimeBetweenFrinds(...)
-    private void TimeForNewFriend(float nextFriendInNsec)
-    {
-        
-    }
-
 }

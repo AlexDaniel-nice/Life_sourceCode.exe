@@ -5,20 +5,13 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private ScriptableObjectsPoz CameraPozition;
-
-    //[SerializeField] private float smoothingValue = 10f;
+    
+    public GameObject NextPhazeBTN;
+    //public float smoothMove = 10f;
 
     private bool isUpView;
     private bool isCodeView;
 
-    private void nextPhaze()
-    {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            transform.position = CameraPozition.CodeViewPoz.position;
-            transform.rotation = CameraPozition.CodeViewPoz.rotation;
-        }
-    }
     private void ZoomView()
     {
         if (Input.GetKeyDown(KeyCode.Z))
@@ -38,7 +31,6 @@ public class CameraMovement : MonoBehaviour
     }
     void Update()
     {
-        nextPhaze();
         ZoomView();
         OriginalCameraView();
         

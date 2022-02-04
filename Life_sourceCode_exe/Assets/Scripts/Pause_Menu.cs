@@ -25,14 +25,8 @@ public class Pause_Menu : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         PauseMenu();
-
     }
 }

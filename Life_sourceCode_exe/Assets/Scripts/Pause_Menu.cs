@@ -28,7 +28,7 @@ public class Pause_Menu : MonoBehaviour
 
     void Start()
     {
-        
+        PauseMenuWindow.SetActive(false);
     }
 
     void Update()

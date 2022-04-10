@@ -8,4 +8,4 @@ public class ScriptableObjectsPoz : ScriptableObject
     public Transform OriginalPoz;
     public Transform TopViewPoz;
     public Transform CodeViewPoz;
-}
+}   

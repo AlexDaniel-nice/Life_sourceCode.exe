@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class codeInterpretor : MonoBehaviour
+public class CLI_code_interpret : MonoBehaviour
 {
-    public InputField CodeWrite;
-    public string defaultBeginMess;
+    [SerializeField] private string defaultBeginMess;
 
+    private InputField CodeWrite;
     private string[] command;
 
     private void Start()
     {
         CodeWrite.Select();
+        CodeWrite = gameObject.GetComponent<InputField>();
     }
+
     private void ena()
     {
         // CodeWrite.enabled = false;

@@ -37,7 +37,7 @@ public class Drag_and_Drop_commands : MonoBehaviour, IPointerDownHandler, IBegin
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("Pressed");
-        Instantiate(GameAssets.GetInstance.buton_if);
+        Instantiate(GameAssets.GetInstance.buton_if); //asta vine in locul lui butonului initial
 
         //butonComenzi = instance.getComponent<RectTransform>();
 

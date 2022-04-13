@@ -3,23 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class C_PlusPlus_code_interpret : MonoBehaviour
+public class code_buttons : MonoBehaviour
 {
-    [SerializeField] private string defaultBeginMess;
+    [SerializeField] private string DefaultBeginMess;
+    [SerializeField] private Text DefaultMessageText;
 
     private InputField CodeWrite;
-    private string beginningMessage;
     private string[] command;
+
+    // Adauga functii pt butoane aici:
+    void If()
+    {
+        //Do whatever it takes for if button
+    }
 
     private void Start()
     {
-        CodeWrite.Select();
+        //CodeWrite.Select();
         CodeWrite = gameObject.GetComponent<InputField>();
-        
     }
+
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(CodeWrite.text);
     }
 }

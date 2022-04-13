@@ -6,6 +6,7 @@ public class GameAssets : MonoBehaviour
 {
     //Referinta la aset-uri:
     public GameObject Friend;
+    public GameObject buton_if;
 
     private static GameAssets instance;
 

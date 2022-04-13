@@ -14,8 +14,8 @@ public class Drag_and_Drop_commands : MonoBehaviour, IPointerDownHandler, IBegin
     {
         butonComenzi = this.GetComponent<RectTransform>();
         InteractableObjects = this.GetComponent<CanvasGroup>();
-
     }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("OneginDrag");
@@ -37,7 +37,8 @@ public class Drag_and_Drop_commands : MonoBehaviour, IPointerDownHandler, IBegin
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("Pressed");
-        // Spawn copy of button
+        Instantiate(GameAssets.GetInstance.buton_if);
+
         //butonComenzi = instance.getComponent<RectTransform>();
 
     }

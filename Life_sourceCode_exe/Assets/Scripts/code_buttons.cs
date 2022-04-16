@@ -5,27 +5,27 @@ using UnityEngine.UI;
 
 public class code_buttons : MonoBehaviour
 {
-    [SerializeField] private string DefaultBeginMess;
-    [SerializeField] private Text DefaultMessageText;
+    [SerializeField] private GameObject ribozom;
+    [SerializeField] private GameObject friend;
 
-    private InputField CodeWrite;
-    private string[] command;
+    private friendBehaviour Friend_Functions;
 
     // Adauga functii pt butoane aici:
-    void If()
-    {
-        //Do whatever it takes for if button
-    }
-
     private void Start()
     {
-        //CodeWrite.Select();
-        CodeWrite = gameObject.GetComponent<InputField>();
+        Friend_Functions = friend.GetComponent<friendBehaviour>();
     }
 
+    private void OnMouseDown()
+    {
+        Instantiate(GameAssets.GetInstance.buton_copy);
+    }
+    private void CopyBtn()
+    {
+        if (Friend_Functions.GetColidingBool()) Instantiate(GameAssets.GetInstance.Proteins);
+    }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(CodeWrite.text);
     }
 }

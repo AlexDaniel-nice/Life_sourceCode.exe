@@ -11,13 +11,24 @@ public class friendBehaviour : MonoBehaviour
     
     private Transform startingPoz;
     private float ratio, Timer = 0;
-    bool move = false;
+    private bool move = false;
+    private bool COLIDING = false;
     
+
+    public bool GetColidingBool()
+    {
+        return COLIDING;
+    }
     // Start is called before the first frame update
     void Start()
     {
         startingPoz = this.transform;
         ratio = 1 / delay;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Ribozom") COLIDING = true;
+        Destroy(this.gameObject);
     }
     private void MoveToFriend(float t)
     {

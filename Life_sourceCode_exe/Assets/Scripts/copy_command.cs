@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class code_buttons : MonoBehaviour
+public class copy_command : codeButtonsManager
 {
     [SerializeField] private GameObject ribozom;
     [SerializeField] private GameObject friend;
+
+    //isTutorial needs to be changed if not the tutorial
+    private bool isTutorial = false;
 
     private friendBehaviour Friend_Functions;
 

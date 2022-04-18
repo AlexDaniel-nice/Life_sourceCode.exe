@@ -1,22 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class codeButtonsManager : MonoBehaviour
 {
-    private static codeButtonsManager instance;
-    private bool isFixed = false;
+    private int NrOfAvailableCommands = 0;
 
-    private static codeButtonsManager GetInstance()
+    // bools for each type of btn;
+    private bool isCopyCommand = false;
+        
+    //sau ne folosim de tag-uri
+    private void Awake()
     {
-        return instance;
+        //foreach (child of this.gameobject)
+             // NrOfAvailableCommands ++;
+             // asign the new place where to be fixed when pressed
     }
 
-    private void OnMouseDown()
+    private void ifClicked()
     {
-        Instantiate(codeButtonsManager.GetInstance().gameObject);
-        isFixed = true;
+        // Instantiate(this.gameObject); as a child of the final place
     }
-
-
 }

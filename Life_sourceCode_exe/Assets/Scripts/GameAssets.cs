@@ -6,9 +6,7 @@ public class GameAssets : MonoBehaviour
 {
     //Referinta la aset-uri:
     public GameObject Friend;
-    public GameObject buton_if;
-    public GameObject buton_copy;
-    public GameObject Proteins;
+    public GameObject FinalPozForCommands;
 
     private static GameAssets instance;
 

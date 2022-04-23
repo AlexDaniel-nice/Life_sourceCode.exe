@@ -21,11 +21,11 @@ public class copy_command : codeButtonsManager
 
     private void OnMouseDown()
     {
-        Instantiate(GameAssets.GetInstance.buton_copy);
+        //Instantiate(GameAssets.GetInstance.buton_copy);
     }
     private void CopyBtn()
     {
-        if (Friend_Functions.GetColidingBool()) Instantiate(GameAssets.GetInstance.Proteins);
+       // if (Friend_Functions.GetColidingBool()) Instantiate(GameAssets.GetInstance.Proteins);
     }
     // Update is called once per frame
     void Update()

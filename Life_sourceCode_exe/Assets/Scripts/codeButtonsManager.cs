@@ -7,19 +7,13 @@ public class codeButtonsManager : MonoBehaviour
 {
     private int NrOfAvailableCommands = 0;
 
-    // bools for each type of btn;
-    private bool isCopyCommand = false;
-        
-    //sau ne folosim de tag-uri
-    private void Awake()
-    {
-        //foreach (child of this.gameobject)
-             // NrOfAvailableCommands ++;
-             // asign the new place where to be fixed when pressed
-    }
+    [SerializeField] private GameObject FinalPoz4Command;
 
-    private void ifClicked()
+    public void ifClicked()
     {
-        // Instantiate(this.gameObject); as a child of the final place
+        GameObject clone = Instantiate(this.gameObject);
+
+        clone.transform.SetParent(FinalPoz4Command.transform);
+        clone.transform.localScale = FinalPoz4Command.transform.localScale;
     }
 }

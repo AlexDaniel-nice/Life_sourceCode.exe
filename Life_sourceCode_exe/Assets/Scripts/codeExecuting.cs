@@ -25,10 +25,12 @@ public class codeExecuting : MonoBehaviour
         codeButtonsManager command = obj.GetComponent<codeButtonsManager>();
 
         command.DoCommand();
+        Debug.Log(obj.name);
     }
     private void Update()
     {
         if ( YesNo.Pressed == true)
             StartIterating();
+        Debug.Log(YesNo.Pressed);
     }
 }

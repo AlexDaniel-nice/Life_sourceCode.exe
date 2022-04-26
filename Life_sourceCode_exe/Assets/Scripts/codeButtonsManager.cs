@@ -19,5 +19,6 @@ public class codeButtonsManager : MonoBehaviour
     public void DoCommand()
     {
         _doCommand = true;
+        Debug.Log("_doCommand is " + _doCommand);
     }
 }

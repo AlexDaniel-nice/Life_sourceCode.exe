@@ -6,24 +6,34 @@ using System;
 public class compileButtonPhaze : MonoBehaviour
 {
     public event EventHandler onButtonPressed;
+    public event EventHandler onButtonDesabled;
 
-    private bool pressed = false;
+    bool StartCompiling = false;
+    bool StopCompiling = false;
     
     //functii atasate butoanelor
     public void PRESSED()
     {
-        pressed = true;
+        StartCompiling = true;
     } 
     public void PRESSED_STOP()
     {
-        pressed = false;
+        StopCompiling = true;
     }
 
     private void Update()
     {
-        if (pressed)
+        if (StartCompiling)
         {
             onButtonPressed?.Invoke(this, EventArgs.Empty);
+            StartCompiling = false;
         }
+
+        if (StopCompiling)
+        {
+            onButtonDesabled?.Invoke(this, EventArgs.Empty);
+            StopCompiling = false;
+        }
+        
     }
 }

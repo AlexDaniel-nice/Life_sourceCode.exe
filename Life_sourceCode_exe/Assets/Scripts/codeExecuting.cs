@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class codeExecuting : MonoBehaviour
 {
+    //event relates vars
+    public GameObject Compile;
     private compileButtonPhaze fireEvent;
 
-    public GameObject Compile;
-
-    private bool GoOnce = false;
+    //doOnce related vars
+    private bool cancel = false;
 
 
     private void Start()
@@ -17,18 +18,33 @@ public class codeExecuting : MonoBehaviour
         fireEvent = Compile.GetComponent<compileButtonPhaze>();
 
         fireEvent.onButtonPressed += FireEvent_onButtonPressed;
+        fireEvent.onButtonDesabled += FireEvent_onButtonDesabled;
+
     }
 
+    //fire the event (execute the code)
     private void FireEvent_onButtonPressed(object sender, EventArgs e)
     {
-        GoOnce = true;
+        cancel = false;
+        StartIterating();
+        Debug.Log("cancel state is " + cancel);
     }
 
+    //stop the event
+    private void FireEvent_onButtonDesabled(object sender, EventArgs e)
+    {
+        cancel = true;
+        Debug.Log("cancel state is " + cancel);
+
+    }
+
+    //user code compile-related code
     public void StartIterating()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            doLogic(transform.GetChild(i).gameObject);
+            if (cancel) return;
+            else doLogic(transform.GetChild(i).gameObject);
         }
     }
 
@@ -37,16 +53,5 @@ public class codeExecuting : MonoBehaviour
         codeButtonsManager command = obj.GetComponent<codeButtonsManager>();
         command.DoCommand();
     }
-    private void Update()
-    {
 
-        if (GoOnce)
-        {
-            StartIterating();
-            Compile.gameObject.SetActive(false);
-            GoOnce = false;
-        }
-        else Compile.gameObject.SetActive(true);
-
-    }
 }

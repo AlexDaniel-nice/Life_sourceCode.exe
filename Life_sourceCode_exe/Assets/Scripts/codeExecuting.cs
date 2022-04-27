@@ -5,12 +5,23 @@ using UnityEngine;
 
 public class codeExecuting : MonoBehaviour
 {
+    private compileButtonPhaze fireEvent;
+
     public GameObject Compile;
-    private compileButtonPhaze YesNo;
+
+    private bool GoOnce = false;
+
 
     private void Start()
     {
-        YesNo = Compile.GetComponent<compileButtonPhaze>();
+        fireEvent = Compile.GetComponent<compileButtonPhaze>();
+
+        fireEvent.onButtonPressed += FireEvent_onButtonPressed;
+    }
+
+    private void FireEvent_onButtonPressed(object sender, EventArgs e)
+    {
+        GoOnce = true;
     }
 
     public void StartIterating()
@@ -26,24 +37,16 @@ public class codeExecuting : MonoBehaviour
         codeButtonsManager command = obj.GetComponent<codeButtonsManager>();
         command.DoCommand();
     }
-
-    bool doOnce = true;
-    int nr=0;
     private void Update()
     {
 
-        if (YesNo.Pressed == true && doOnce == true)
+        if (GoOnce)
         {
-            nr++;
             StartIterating();
             Compile.gameObject.SetActive(false);
-            doOnce = false;
+            GoOnce = false;
         }
         else Compile.gameObject.SetActive(true);
 
-        if (!YesNo.Pressed) doOnce = true;
-
-        Debug.Log(YesNo.Pressed);
-        Debug.Log(nr);
     }
 }

@@ -607,7 +607,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5867073275890208110}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1415023335}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d11ab8494272de041b3df710f4093e90, type: 3}
@@ -1283,6 +1283,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330752630}
   m_CullTransparentMesh: 0
+--- !u!1 &1415023335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5867073275394693334, guid: 35381fd3b6bc4f34891da0aa68d35bd1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5867073275890208110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1415023339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415023335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef48595d2e88664a95605b9b7a3f9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinalPoz4Command: {fileID: 1875008585}
+  _doCommand: 0
 --- !u!1 &1433745352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,7 +1856,6 @@ GameObject:
   - component: {fileID: 2074716027}
   - component: {fileID: 2074716026}
   - component: {fileID: 2074716025}
-  - component: {fileID: 2074716024}
   m_Layer: 5
   m_Name: don't compile
   m_TagString: Untagged
@@ -1864,19 +1883,6 @@ RectTransform:
   m_AnchoredPosition: {x: -165, y: -315.9}
   m_SizeDelta: {x: 140.3642, y: 48.125427}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2074716024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074716022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 951343a6136b070408b1f07fc704457b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pressed: 0
 --- !u!114 &2074716025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1917,7 +1923,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2074716024}
+      - m_Target: {fileID: 1329733948}
         m_MethodName: PRESSED_STOP
         m_Mode: 1
         m_Arguments:

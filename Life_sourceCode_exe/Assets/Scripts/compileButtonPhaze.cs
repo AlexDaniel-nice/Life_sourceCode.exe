@@ -5,14 +5,25 @@ using System;
 
 public class compileButtonPhaze : MonoBehaviour
 {
-    public bool Pressed = false;
+    public event EventHandler onButtonPressed;
+
+    private bool pressed = false;
     
+    //functii atasate butoanelor
     public void PRESSED()
     {
-        Pressed = true;
+        pressed = true;
     } 
     public void PRESSED_STOP()
     {
-        Pressed = false;
+        pressed = false;
+    }
+
+    private void Update()
+    {
+        if (pressed)
+        {
+            onButtonPressed?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

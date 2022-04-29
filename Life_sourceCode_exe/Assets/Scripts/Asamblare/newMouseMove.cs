@@ -9,6 +9,8 @@ public class newMouseMove : MonoBehaviour
     [SerializeField] private Transform fixedPozition;
 
     private Rigidbody _rb;
+    private bool isFixed = false;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -16,7 +18,8 @@ public class newMouseMove : MonoBehaviour
 
     private void FixObjInPlace()
     {
-            _rb.transform.position = fixedPozition.position;
+        _rb.transform.position = fixedPozition.position;
+        isFixed = true;
     }
     private void HandleCursorMovement()
     {
@@ -25,13 +28,20 @@ public class newMouseMove : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit rayCastHit, float.MaxValue, layerMask))
         {
             transform.position = rayCastHit.point;
+            _rb.isKinematic = true;
         }
     }
 
     private void OnMouseDrag()
     {
-        HandleCursorMovement();
-        _rb.isKinematic = true;
+        if (isFixed) return;
+        else
+        {
+            HandleCursorMovement();
+            _rb.isKinematic = true;
+
+        }
+
         if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
         {
             FixObjInPlace();
@@ -42,5 +52,6 @@ public class newMouseMove : MonoBehaviour
     private void OnMouseUp()
     {
         _rb.isKinematic = false;
+        isFixed = false;
     }
 }

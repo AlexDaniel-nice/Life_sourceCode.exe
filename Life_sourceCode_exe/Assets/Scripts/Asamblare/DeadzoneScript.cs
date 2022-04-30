@@ -5,7 +5,7 @@ using System;
 
 public class DeadzoneScript : MonoBehaviour
 {
-    public static EventHandler onDeadzoneEnter;
+    public event EventHandler onDeadzoneEnter;
 
     private void OnCollisionEnter(Collision collision)
     {

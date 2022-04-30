@@ -2923,7 +2923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SnapZone: {fileID: 25784875}
   SnapObjectFather: {fileID: 917550210}
-  OriginalFather: {fileID: 0}
+  OriginalFather: {fileID: 552121175}
   layerMask:
     serializedVersion: 2
     m_Bits: 823

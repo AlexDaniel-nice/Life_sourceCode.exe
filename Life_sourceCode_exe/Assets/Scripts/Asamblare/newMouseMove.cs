@@ -34,7 +34,12 @@ public class newMouseMove : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (isFixed) return;
+        if (isFixed)
+        {
+            _rb.isKinematic = true;
+            return;
+
+        }
         else
         {
             HandleCursorMovement();

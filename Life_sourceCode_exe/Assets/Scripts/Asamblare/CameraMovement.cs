@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -32,26 +33,29 @@ public class CameraMovement : MonoBehaviour
             transform.rotation = CameraPozition.OriginalPoz.rotation;
         }
     }
+
+    //This code can be added to other scripts to maintain readability
+    public event EventHandler OnReload;
+    private void ReloadScene()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Loader.Load(Loader.Scene.GameScene);
+            OnReload?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    private void LoadNextScene()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+            Loader.Load(Loader.Scene.CodeWriting);
+    }
     void Update()
     {
         CodeView();
         ZoomView();
         OriginalCameraView();
-        
-        /** Extra code, purpose: UNKNOWN :))))
-        isCodeView = NextPhazeBTN.GetComponent<nextPhaze>().CodePhaze;
-
-        if (isCodeView==true)
-        {
-            this.transform.position = TargetPoz2.position;
-            this.transform.rotation = TargetPoz2.rotation;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            this.transform.position = TargetPoz1.position;
-            this.transform.rotation = TargetPoz1.rotation;
-        }
-        **/
+        ReloadScene();
+        LoadNextScene();
     }
 }

@@ -36,6 +36,7 @@ public class CameraMovement : MonoBehaviour
 
     //This code can be added to other scripts to maintain readability
     public event EventHandler OnReload;
+    public event EventHandler onNextScene;
     private void ReloadScene()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -48,7 +49,10 @@ public class CameraMovement : MonoBehaviour
     private void LoadNextScene()
     {
         if (Input.GetKeyDown(KeyCode.N))
+        {
             Loader.Load(Loader.Scene.CodeWriting);
+            onNextScene?.Invoke(this, EventArgs.Empty);
+        }
     }
     void Update()
     {

@@ -2939,7 +2939,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 552121176}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &529092761
 PrefabInstance:
@@ -3127,7 +3127,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 917973154}
   - {fileID: 528469707}
   m_Father: {fileID: 1641446378}
   m_RootOrder: 2
@@ -4325,6 +4324,7 @@ GameObject:
   - component: {fileID: 917550212}
   - component: {fileID: 917550211}
   - component: {fileID: 917550213}
+  - component: {fileID: 917550214}
   m_Layer: 12
   m_Name: ribosome_big
   m_TagString: Untagged
@@ -4379,6 +4379,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3895
   fixedPozition: {fileID: 296189300}
+--- !u!114 &917550214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917550210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42e84611fdd66045b1d247e75fcf6e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getLoadEvent: {fileID: 534669906}
 --- !u!4 &917973154
 Transform:
   m_ObjectHideFlags: 0
@@ -4387,12 +4400,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917550210}
   m_LocalRotation: {x: -0.43680465, y: -0, z: -0, w: 0.89955646}
-  m_LocalPosition: {x: 4.747, y: 3.166, z: -4.602}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -0.13966417, y: 1.1162438, z: -0.84018373}
+  m_LocalScale: {x: 0.5, y: 0.5000002, z: 0.5000002}
   m_Children:
   - {fileID: 25784876}
-  m_Father: {fileID: 552121176}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -51.800003, y: 0, z: 0}
 --- !u!1 &923537298
 GameObject:

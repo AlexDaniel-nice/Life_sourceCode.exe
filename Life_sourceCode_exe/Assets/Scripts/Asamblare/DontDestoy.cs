@@ -23,6 +23,7 @@ public class DontDestoy : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    //prlucrare obiect dupa distrugere
     private void ReloadEvent_onNextScene(object sender, System.EventArgs e)
     {
         Vector3 finalPoz = new Vector3(.5f, 1.6f, -9.5f);

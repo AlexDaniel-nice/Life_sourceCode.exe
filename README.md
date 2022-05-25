@@ -16,3 +16,4 @@ Pentru crearea mai rapida a scenelor am folosit parti din urmatoarele pachete:
   - https://assetstore.unity.com/packages/3d/realistic-cardboard-boxes-pbr-hq-58749
   - https://assetstore.unity.com/packages/3d/environments/snaps-prototype-office-137490
 
+Anumite efecte sonore (aplicate pe butoane sa interactiuni) sunt implicite in aplicatia fl studio 20.

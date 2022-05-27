@@ -9,4 +9,9 @@ public class nextScene : MonoBehaviour
     {
         Loader.Load(Loader.Scene.codeExecute);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N)) Loader.Load(Loader.Scene.codeExecute);
+    }
 }

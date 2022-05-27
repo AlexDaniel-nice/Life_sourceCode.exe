@@ -33,5 +33,7 @@ public class levelGenerator : MonoBehaviour
             SpawnFriend();
             Timer = 0;
         }
+        if (Input.GetKeyDown(KeyCode.Escape)) Loader.Load(Loader.Scene.GameScene);
+
     }
 }

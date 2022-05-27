@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CodeWriting.unity
     guid: bcf11ec1453f9524383bc583bd5b5da4
+  - enabled: 1
+    path: Assets/Scenes/codeExecute.unity
+    guid: ae0b97f2cb85ce84a81b1db616a1281c
   m_configObjects: {}

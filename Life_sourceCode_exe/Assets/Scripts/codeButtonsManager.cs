@@ -10,9 +10,11 @@ public class codeButtonsManager : MonoBehaviour
     public void ifClicked()
     {
         GameObject clone = Instantiate(this.gameObject);
+        Transform _trComp = clone.GetComponent<Transform>();
 
-        clone.transform.SetParent(FinalPoz4Command.transform);
-        clone.transform.localScale = FinalPoz4Command.transform.localScale;
+        _trComp.SetParent(FinalPoz4Command.transform);
+        _trComp.localScale = FinalPoz4Command.transform.localScale;
+        _trComp.position = Vector3.zero;
     }
    
     public bool _doCommand = false;

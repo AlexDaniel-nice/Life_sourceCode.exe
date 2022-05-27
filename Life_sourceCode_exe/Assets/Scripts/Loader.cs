@@ -11,6 +11,7 @@ public static class Loader
         GameScene,
         loadingScene,
         CodeWriting,
+        codeExecute,
     }
 
     private static Action onLoaderCallback;

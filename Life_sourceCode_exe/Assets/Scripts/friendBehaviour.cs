@@ -13,7 +13,7 @@ public class friendBehaviour : MonoBehaviour
     private float ratio, Timer = 0;
     private bool move = false;
     private bool COLIDING = false;
-    
+    private float time2destroy = 0;
 
     public bool GetColidingBool()
     {
@@ -45,5 +45,11 @@ public class friendBehaviour : MonoBehaviour
 
         if (move == true)
             MoveToFriend(ratio);
+
+        time2destroy += Time.deltaTime;
+        if (time2destroy >= 20)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

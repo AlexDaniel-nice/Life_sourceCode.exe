@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class levelGenerator : MonoBehaviour
 {
-    [SerializeField] private float TimeToSpawnFriend;
+    [SerializeField] private float TimeToSpawnFriend = 1;
 
     private float Timer = 0;
+
 
     void Start()
     {
